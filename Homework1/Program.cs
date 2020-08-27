@@ -15,8 +15,9 @@ namespace Homework1
             int[] array = GetArray(arraySize);
 
             Console.WriteLine();
-            GetPrimeNumbers(array);
+            ChangePrimeNumbers(array);
 
+            Console.WriteLine();
             int max = GetMax(array);
             int min = GetMin(array);
             Console.WriteLine("Sum of min and max: {0}", min + max);
@@ -32,7 +33,7 @@ namespace Homework1
             return array;
         }
 
-        private static void GetPrimeNumbers(int[] array)
+        private static void ChangePrimeNumbers(int[] array)
         {
             bool isPrime;
             for (int i = 0; i < array.Length; i++)
@@ -53,12 +54,24 @@ namespace Homework1
                     }
                     if (isPrime)
                     {
-                        Console.WriteLine("Prime number: " + array[i]);
+                        array[i] = 0;
                     }
                 }
             }
+            PrintArray(array);
             Console.WriteLine();
         }
+
+        static void PrintArray(int[] array)
+        {
+            Console.WriteLine("Changed Array");
+            foreach (var item in array)
+            {
+                Console.Write(item + " ");
+            }
+        }
+
+       
 
         private static int GetMin(int[] array)
         {
